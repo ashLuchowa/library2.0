@@ -1,6 +1,6 @@
 //Library Array
-const book1 = new Book('The Hobbit', 'Tolkien', 201, true);
-const myLibrary = [book1];
+const defaultBook = new Book('The Hobbit', 'Tolkien', 201, true);
+const myLibrary = [defaultBook];
 
 //Constructor
 function Book(title, author, pages, read) {
@@ -15,6 +15,4 @@ function addBookToLibrary(bookObject) {
     myLibrary.push(bookObject);
 }
 
-const book2 = new Book('Harry Potter', 'Rowling', 510, false);
-
-addBookToLibrary(book2);
+const addedBook = new Book('Harry Potter', 'Rowling', 510, false);
