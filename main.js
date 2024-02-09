@@ -11,16 +11,19 @@ function Book(title, author, pages, read) {
 };
 
 //Add a book function
-function addBookToLibrary(bookObject) {
-    myLibrary.push(bookObject);
-}
-
-const addedBook = new Book('Harry Potter', 'Rowling', 510, false);
+function addBookToLibrary(addedBook) {
+    myLibrary.push(addedBook);
+};
 
 //Submit button Event Listener
 function submitForm(x) {
     x.preventDefault();
-    console.log('works');
+    title = document.getElementById('title');
+    author = document.getElementById('author');
+    pages = document.getElementById('pages');
+    read = document.getElementById('read');
+    const addedBook = new Book(title.value, author.value, pages.value, read.checked);
+    console.log(addedBook);
 };
 
 const form = document.getElementById('main-form');
