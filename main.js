@@ -17,18 +17,25 @@ function createNewBook() {
     const mainContainer = document.querySelector('.main-container');
     mainContainer.appendChild(newForm);
     const tableTitle = document.createElement('div');
+    const tableAuthor = document.createElement('div');
+
+    //Title
     newForm.appendChild(tableTitle);
     tableTitle.classList.add('mainTitle');
     tableTitle.textContent = `Title: ${title.value}`;
+    //Author
+    newForm.appendChild(tableAuthor);
+    tableAuthor.classList.add('mainAuthor');
+    tableAuthor.textContent = `Author: ${author.value}`;
 }
 
 //Submit button Event Listener
 function submitForm(x) {
     x.preventDefault();
-    title = document.getElementById('title');
-    author = document.getElementById('author');
-    pages = document.getElementById('pages');
-    read = document.getElementById('read');
+    let title = document.getElementById('title');
+    let author = document.getElementById('author');
+    let pages = document.getElementById('pages');
+    let read = document.getElementById('read');
     const addedBook = new Book(title.value, author.value, pages.value, read.checked);
     myLibrary.push(addedBook);
     createNewBook();
