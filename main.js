@@ -10,11 +10,6 @@ function Book(title, author, pages, read) {
     this.read = read;
 };
 
-//Add a book function
-function addBookToLibrary(addedBook) {
-    myLibrary.push(addedBook);
-};
-
 //Submit button Event Listener
 function submitForm(x) {
     x.preventDefault();
@@ -23,6 +18,7 @@ function submitForm(x) {
     pages = document.getElementById('pages');
     read = document.getElementById('read');
     const addedBook = new Book(title.value, author.value, pages.value, read.checked);
+    myLibrary.push(addedBook);
     console.log(addedBook);
 };
 
