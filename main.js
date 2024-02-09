@@ -17,10 +17,11 @@ function addBookToLibrary(bookObject) {
 
 const addedBook = new Book('Harry Potter', 'Rowling', 510, false);
 
-//Submit button
-const submitBtn = document.getElementById('submitBtn');
-
-submitBtn.addEventListener('click', (x) => {
+//Submit button Event Listener
+function submitForm(x) {
     x.preventDefault();
     console.log('works');
-});
+};
+
+const form = document.getElementById('main-form');
+form.addEventListener('submit', submitForm);
