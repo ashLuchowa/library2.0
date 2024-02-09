@@ -16,3 +16,11 @@ function addBookToLibrary(bookObject) {
 }
 
 const addedBook = new Book('Harry Potter', 'Rowling', 510, false);
+
+//Submit button
+const submitBtn = document.getElementById('submitBtn');
+
+submitBtn.addEventListener('click', (x) => {
+    x.preventDefault();
+    console.log('works');
+});
