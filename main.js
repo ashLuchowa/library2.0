@@ -10,6 +10,13 @@ function Book(title, author, pages, read) {
     this.read = read;
 };
 
+//Default Book
+document.querySelector('.defaultTitle').textContent = `Title: ${defaultBook.title}`;
+document.querySelector('.defaultAuthor').textContent = `Author: ${defaultBook.author}`;
+document.querySelector('.defaultPages').textContent = `Pages: ${defaultBook.pages}`;
+document.querySelector('.defaultRead').textContent = `Read: ${defaultBook.read}`;
+
+
 //create a new book form
 function createNewBook() {
     const newForm = document.createElement('div');
@@ -36,7 +43,7 @@ function createNewBook() {
     //Read
     newForm.appendChild(tableRead);
     tableRead.classList.add('mainRead');
-    tableRead.textContent = `Pages: ${read.checked}`;
+    tableRead.textContent = `Read: ${read.checked}`;
 }
 
 //Submit button Event Listener
