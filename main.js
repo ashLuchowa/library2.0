@@ -18,6 +18,8 @@ function createNewBook() {
     mainContainer.appendChild(newForm);
     const tableTitle = document.createElement('div');
     const tableAuthor = document.createElement('div');
+    const tablePages = document.createElement('div');
+    const tableRead = document.createElement('div');
 
     //Title
     newForm.appendChild(tableTitle);
@@ -27,6 +29,14 @@ function createNewBook() {
     newForm.appendChild(tableAuthor);
     tableAuthor.classList.add('mainAuthor');
     tableAuthor.textContent = `Author: ${author.value}`;
+    //Pages
+    newForm.appendChild(tablePages);
+    tablePages.classList.add('mainPages');
+    tablePages.textContent = `Pages: ${pages.value}`;
+    //Read
+    newForm.appendChild(tableRead);
+    tableRead.classList.add('mainRead');
+    tableRead.textContent = `Pages: ${read.checked}`;
 }
 
 //Submit button Event Listener
