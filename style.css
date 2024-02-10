@@ -16,11 +16,8 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color:rgb(255, 255, 255);
-    /* border: 1px solid black; */
-    margin-bottom: 20px;
     width: 100%;
     height: 30px;
-    border-radius: 10px;
     padding: 0px 15px;
 }
 
@@ -28,11 +25,45 @@ body {
     width: 200px;
 }
 
+
+/* FORM */
+#main-form {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+
+#main-form div {
+    margin-bottom: 10px;
+}
+
+#main-form div:last-child {
+    margin-bottom: 0px;
+}
+
+.read-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .hide-form {
     visibility: hidden;
 }
 
-/* FORM */
 .form-btn {
     cursor: pointer;
     display: flex;
@@ -48,4 +79,14 @@ body {
     border-radius: 40px;
     margin-bottom: 20px;
     margin-right: 20px;
+}
+
+#submitBtn {
+    cursor: pointer;
+    background-color: rgb(0, 119, 255);
+    color: white;
+    font-size: 17px;
+    border: 0px;
+    padding: 8px 16px;
+    border-radius: 8px;
 }

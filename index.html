@@ -18,18 +18,28 @@
     </div>
     
     <form id="main-form" class="hide-form">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" required><br>
-        <label for="author">Author:</label><br>
-        <input type="text" id="author" name="author"><br>
-        <label for="pages">Pages:</label><br>
-        <input type="number" id="pages" name="pages"><br>
+        <div>
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" required><br>
+        </div>
+        <div>
+            <label for="author">Author:</label><br>
+            <input type="text" id="author" name="author"><br>
+        </div>
+        <div>
+            <label for="pages">Pages:</label><br>
+            <input type="number" id="pages" name="pages"><br>
+        </div>
         
-        <input type="radio" id="read" value="read" name="option">
-        <label for="read">Read</label>
-
-        <input type="radio" id="not_read" value="not_read" name="option">
-        <label for="not_read">Not Read</label><br>
+        <div class="read-container">
+            <div>
+                <input type="radio" id="read" value="read" name="option">
+                <label for="read">Read</label>
+            
+                <input type="radio" id="not_read" value="not_read" name="option">
+                <label for="not_read">Not Read</label><br>
+            </div>
+        </div>
 
         <input type="submit" value="submit" id="submitBtn">
     </form>
