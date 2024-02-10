@@ -23,27 +23,18 @@ function createNewBook() {
     newForm.classList.add('main-table');
     const mainContainer = document.querySelector('.main-container');
     mainContainer.appendChild(newForm);
-    const tableTitle = document.createElement('div');
-    const tableAuthor = document.createElement('div');
-    const tablePages = document.createElement('div');
-    const tableRead = document.createElement('div');
 
-    //Title
-    newForm.appendChild(tableTitle);
-    tableTitle.classList.add('mainTitle');
-    tableTitle.textContent = `Title: ${title.value}`;
-    //Author
-    newForm.appendChild(tableAuthor);
-    tableAuthor.classList.add('mainAuthor');
-    tableAuthor.textContent = `Author: ${author.value}`;
-    //Pages
-    newForm.appendChild(tablePages);
-    tablePages.classList.add('mainPages');
-    tablePages.textContent = `Pages: ${pages.value}`;
-    //Read
-    newForm.appendChild(tableRead);
-    tableRead.classList.add('mainRead');
-    tableRead.textContent = `Read: ${read.checked}`;
+    function infoAdded(className, label, value) {
+        const data = document.createElement('div');
+        newForm.appendChild(data);
+        data.classList.add(className);
+        data.textContent = `${label}: ${value}`;
+    }
+
+    infoAdded('tableTitle', 'Title', title.value);
+    infoAdded('tableAuthor', 'Author', author.value);
+    infoAdded('tablePages', 'Pages', pages.value);
+    infoAdded('tableRead', 'Read', read.value);
 }
 
 //Submit button Event Listener
