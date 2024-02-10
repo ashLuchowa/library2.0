@@ -28,9 +28,9 @@ body {
     width: 200px;
 }
 
-/* #main-form {
+.hide-form {
     visibility: hidden;
-} */
+}
 
 /* FORM */
 .form-btn {

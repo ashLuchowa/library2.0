@@ -52,3 +52,9 @@ function submitForm(x) {
 
 const form = document.getElementById('main-form');
 form.addEventListener('submit', submitForm);
+
+//Display Form
+const formBtn = document.querySelector('.form-btn');
+formBtn.addEventListener('click', () => {
+    form.classList.toggle('hide-form');
+}); 
