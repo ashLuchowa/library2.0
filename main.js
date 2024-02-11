@@ -36,7 +36,7 @@ function createNewBook() {
     infoAdded('tablePages', 'Pages', pages.value);
     if(read.checked === true) {
         infoAdded('tableRead', 'Read', 'Yes');
-    } else {
+    } else if(read.checked === false) {
         infoAdded('tableRead', 'Read', 'No');
     }
 }
@@ -65,5 +65,5 @@ function resetForm() {
     title.value = '';
     author.value = '';
     pages.value = '';
-    read.checked = '';
+    read.value = '';
 }
