@@ -22,12 +22,24 @@ body {
     border-bottom: 1px solid rgb(0, 0, 0);
 }
 
+.main-table:first-child {
+    border-radius: 10px 10px 0px 0px;
+}
+
+.main-table:last-child {
+    border-radius: 0px 0px 10px 10px;
+}
+
 .main-table div {
     width: 200px;
 }
 
 
 /* FORM */
+.main-container {
+    margin: 50px 5vw;
+}
+
 #main-form {
     position: fixed;
     left: 0;
