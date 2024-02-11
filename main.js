@@ -50,7 +50,7 @@ function submitForm(x) {
     console.log(addedBook);
     resetForm();
     hideForm();
-    blurBackground('1');
+    blurBackground();
 };
 
 const form = document.getElementById('main-form');
@@ -60,7 +60,7 @@ form.addEventListener('submit', submitForm);
 const formBtn = document.querySelector('.form-btn');
 formBtn.addEventListener('click', () => {
     form.classList.toggle('hide-form');
-    blurBackground('0.2');
+    blurBackground();
 });
 
 //Hide Form()
@@ -69,9 +69,9 @@ function hideForm() {
 }
 
 //Blur background()
-function blurBackground(opacity) {
+function blurBackground() {
     const mainBody = document.querySelector('.main-container');
-    mainBody.style.opacity = opacity;
+    mainBody.classList.toggle('opacity-bg');
 }
 
 //Reset Form
