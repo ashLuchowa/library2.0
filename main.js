@@ -1,5 +1,5 @@
 //Library Array
-const defaultBook = new Book('The Hobbit', 'Tolkien', 201, true);
+const defaultBook = new Book('The Hobbit', 'Tolkien', 201, 'Yes');
 const myLibrary = [defaultBook];
 
 //Constructor
@@ -34,20 +34,21 @@ function createNewBook() {
     infoAdded('tableTitle', 'Title', title.value);
     infoAdded('tableAuthor', 'Author', author.value);
     infoAdded('tablePages', 'Pages', pages.value);
-    infoAdded('tableRead', 'Read', read.value);
+    if(read.checked === true) {
+        infoAdded('tableRead', 'Read', 'Yes');
+    } else {
+        infoAdded('tableRead', 'Read', 'No');
+    }
 }
 
 //Submit button Event Listener
 function submitForm(x) {
     x.preventDefault();
-    let title = document.getElementById('title');
-    let author = document.getElementById('author');
-    let pages = document.getElementById('pages');
-    let read = document.getElementById('read');
     const addedBook = new Book(title.value, author.value, pages.value, read.checked);
     myLibrary.push(addedBook);
     createNewBook();
     console.log(addedBook);
+    resetForm();
 };
 
 const form = document.getElementById('main-form');
@@ -57,4 +58,12 @@ form.addEventListener('submit', submitForm);
 const formBtn = document.querySelector('.form-btn');
 formBtn.addEventListener('click', () => {
     form.classList.toggle('hide-form');
-}); 
+});
+
+//Reset Form
+function resetForm() {
+    title.value = '';
+    author.value = '';
+    pages.value = '';
+    read.checked = '';
+}
