@@ -100,3 +100,14 @@ body {
     opacity: 0.1;
     transition: opacity 0.2s ease;
 }
+
+/* Btn */
+.delete-btn-style::after {
+    background-color: rgb(255, 0, 0);
+    color: white;
+    padding: 2px 5px;
+    cursor: pointer;
+    content: 'x';
+    font-weight: bold;
+    border-radius: 4px;
+}
