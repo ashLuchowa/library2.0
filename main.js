@@ -49,6 +49,8 @@ function submitForm(x) {
     createNewBook();
     console.log(addedBook);
     resetForm();
+    hideForm();
+    blurBackground('1');
 };
 
 const form = document.getElementById('main-form');
@@ -58,7 +60,19 @@ form.addEventListener('submit', submitForm);
 const formBtn = document.querySelector('.form-btn');
 formBtn.addEventListener('click', () => {
     form.classList.toggle('hide-form');
+    blurBackground('0.2');
 });
+
+//Hide Form()
+function hideForm() {
+    form.classList.add('hide-form');
+}
+
+//Blur background()
+function blurBackground(opacity) {
+    const mainBody = document.querySelector('.main-container');
+    mainBody.style.opacity = opacity;
+}
 
 //Reset Form
 function resetForm() {
