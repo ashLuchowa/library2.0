@@ -64,7 +64,9 @@ function appendDelBtn() {
     //Del event listener
     delBtn.addEventListener('click', ()=> {
         result = delBtn.parentNode;
-        mainContainer.removeChild(result);
+        if (confirm('Are you sure?')) {
+            mainContainer.removeChild(result);
+        }
     });
 };
 
