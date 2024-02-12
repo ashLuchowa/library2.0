@@ -26,6 +26,22 @@ function Book(title, author, pages, read) {
 
 //Loop myLibrary Array
 myLibrary.forEach((element) => {
+    createNewBook(element);
+});
+
+//Submit button Event Listener
+function submitForm(x) {
+    x.preventDefault();
+    const addedBook = new Book(title.value, author.value, pages.value, read.checked);
+    myLibrary.push(addedBook);
+    // createNewBook();
+    resetForm();
+    hideForm();
+    blurBackground();
+};
+
+//Create a new book
+function createNewBook(target) {
     const mainTable = document.createElement('div');
     mainTable.classList.add('main-table');
     mainContainer.appendChild(mainTable);
@@ -38,45 +54,10 @@ myLibrary.forEach((element) => {
         item.textContent = value;
     };
 
-    createBookData('title', element.title);
-    createBookData('author', element.author);
-    createBookData('pages', element.pages);
-    createBookData('read', element.read);
-});
-
-//create a new book form
-function createNewBook() {
-    const newForm = document.createElement('div');
-    newForm.classList.add('main-table');
-    const mainContainer = document.querySelector('.main-container');
-    mainContainer.appendChild(newForm);
-
-    function infoAdded(className, label, value) {
-        const data = document.createElement('div');
-        newForm.appendChild(data);
-        data.classList.add(className);
-        data.textContent = `${label}: ${value}`;
-    };
-
-    infoAdded('tableTitle', 'Title', title.value);
-    infoAdded('tableAuthor', 'Author', author.value);
-    infoAdded('tablePages', 'Pages', pages.value);
-    if(read.checked === true) {
-        infoAdded('tableRead', 'Read', 'Yes');
-    } else if(read.checked === false) {
-        infoAdded('tableRead', 'Read', 'No');
-    }
-};
-
-//Submit button Event Listener
-function submitForm(x) {
-    x.preventDefault();
-    const addedBook = new Book(title.value, author.value, pages.value, read.checked);
-    myLibrary.push(addedBook);
-    createNewBook();
-    resetForm();
-    hideForm();
-    blurBackground();
+    createBookData('title', target.title);
+    createBookData('author', target.author);
+    createBookData('pages', target.pages);
+    createBookData('read', target.read);
 };
 
 const form = document.getElementById('main-form');
