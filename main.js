@@ -1,5 +1,6 @@
 //Global Variables
 const mainContainer = document.querySelector('.main-container');
+let mainTable;
 
 //Library array + default books
 const defaultBook = new Book('The Hobbit', 'Tolkien', 201, 'Yes');
@@ -14,15 +15,6 @@ function Book(title, author, pages, read) {
     this.pages = pages,
     this.read = read;
 };
-
-// //Delete Btn
-// function deleteTableRow() {
-//     const delBtn = document.createElement('span');
-//     delBtn.classList.add('.delete-btn-style');
-
-//     const mainTable = document.querySelectorAll('.main-table');
-//     mainTable.appendChild(delBtn);
-// }
 
 //Loop myLibrary Array
 myLibrary.forEach((element) => {
@@ -42,11 +34,11 @@ function submitForm(x) {
 
 //Create a new book
 function createNewBook(target) {
-    const mainTable = document.createElement('div');
+    mainTable = document.createElement('div');
     mainTable.classList.add('main-table');
     mainContainer.appendChild(mainTable);
     
-    //create Book data
+    //create book data
     function createBookData(className, value) {
         const item = document.createElement('div');
         item.classList.add(className);
@@ -58,6 +50,22 @@ function createNewBook(target) {
     createBookData('author', target.author);
     createBookData('pages', target.pages);
     createBookData('read', target.read);
+
+    //Delete button
+    appendDelBtn();
+};
+
+//Delete Btn
+function appendDelBtn() {
+    //create the btn
+    const delBtn = document.createElement('span');
+    delBtn.classList.add('delete-btn-style');
+    mainTable.appendChild(delBtn);
+    //Del event listener
+    delBtn.addEventListener('click', ()=> {
+        result = delBtn.parentNode;
+        mainContainer.removeChild(result);
+    });
 };
 
 const form = document.getElementById('main-form');
