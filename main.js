@@ -70,6 +70,12 @@ function toggleReadSwitch(y) {
     toggleDiv.appendChild(toggleContainer);
     toggleContainer.appendChild(toggleItem);
 
+    //Style
+    toggleContainer.classList.add('switch');
+    const newSpan = document.createElement('span');
+    toggleContainer.appendChild(newSpan);
+    newSpan.classList.add('slider', 'round');
+
     if(y === true) {
         toggleItem.checked = true;
     }
@@ -87,6 +93,8 @@ function appendDelBtn() {
         const targetTitle = result.querySelector('.title');
         if (confirm(`Delete ${targetTitle.textContent}?`)) {
             mainContainer.removeChild(result);
+            //Dont forget to remove in library also
+            myLibrary.pop(result)
         }
     });
 };
