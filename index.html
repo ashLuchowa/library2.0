@@ -8,26 +8,32 @@
 </head>
 <body>
     <div class="main-container">
-        
+        <div class="main-table title-table">
+            <div class="title">Title</div>
+            <div class="author">Author</div>
+            <div class="pages">Pages</div>
+            <div class="read">Read</div>
+            <span>Remove</span>
+        </div>
     </div>
     
     <form id="main-form" class="hide-form">
         <div>
             <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title"><br>
+            <input type="text" id="title" name="title" required><br>
         </div>
         <div>
             <label for="author">Author:</label><br>
-            <input type="text" id="author" name="author"><br>
+            <input type="text" id="author" name="author" required><br>
         </div>
         <div>
             <label for="pages">Pages:</label><br>
-            <input type="number" id="pages" name="pages"><br>
+            <input type="number" id="pages" name="pages" required><br>
         </div>
     
         <div>
-            <input type="radio" id="read" value="read" name="option">Read 
-            <input type="radio" id="not-read" value="not-read" name="option">Not Read
+            <input type="radio" id="read" value="read" name="option" required>Read 
+            <input type="radio" id="not-read" value="not-read" name="option" required>Not Read
         </div> 
 
         <input type="submit" value="submit" id="submitBtn">

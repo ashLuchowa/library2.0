@@ -13,7 +13,6 @@ body {
 .main-table {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     background-color:rgb(255, 255, 255);
     width: 100%;
@@ -23,9 +22,19 @@ body {
 }
 
 .main-table div {
-    width: 200px;
+    width: 20vw;
 }
 
+.main-table:last-child {
+    border-radius: 0px 0px 8px 8px;
+}
+
+.title-table {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px 8px 0px 0px;
+}
 
 /* FORM */
 .main-container {
