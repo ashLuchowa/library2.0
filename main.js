@@ -63,8 +63,9 @@ function appendDelBtn() {
     mainTable.appendChild(delBtn);
     //Del event listener
     delBtn.addEventListener('click', ()=> {
-        result = delBtn.parentNode;
-        if (confirm('Are you sure?')) {
+        const result = delBtn.parentNode;
+        const targetTitle = result.querySelector('.title');
+        if (confirm(`Delete ${targetTitle.textContent}?`)) {
             mainContainer.removeChild(result);
         }
     });
