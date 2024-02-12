@@ -10,6 +10,11 @@ body {
     background-color: black;
 }
 
+#main-title {
+    font-size: 10rem;
+    color: white;
+}
+
 .main-table {
     display: flex;
     flex-direction: row;
