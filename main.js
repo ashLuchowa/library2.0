@@ -93,8 +93,17 @@ function appendDelBtn() {
         const targetTitle = result.querySelector('.title');
         if (confirm(`Delete ${targetTitle.textContent}?`)) {
             mainContainer.removeChild(result);
-            //Dont forget to remove in library also
-            myLibrary.pop(result)
+
+            //Remove deleted object in myLibrary
+            const result2 = myLibrary.findIndex(findBook);
+
+            function findBook(value) {
+                return value.title === targetTitle.textContent;
+            }
+
+            if (result2 !== -1) {
+                myLibrary.splice(result2, 1);
+            }
         }
     });
 };
