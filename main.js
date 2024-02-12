@@ -1,7 +1,7 @@
-//Variables
+//Global Variables
 const mainContainer = document.querySelector('.main-container');
 
-//Library Array
+//Library array + default books
 const defaultBook = new Book('The Hobbit', 'Tolkien', 201, 'Yes');
 const defaultBook2 = new Book('Warcraft', 'Blizzard Entertainment', 410, 'No');
 const defaultBook3 = new Book('Nunuko', 'Akimoto', 190, 'Yes');
@@ -34,7 +34,7 @@ function submitForm(x) {
     x.preventDefault();
     const addedBook = new Book(title.value, author.value, pages.value, read.checked);
     myLibrary.push(addedBook);
-    // createNewBook();
+    createNewBook(addedBook);
     resetForm();
     hideForm();
     blurBackground();
