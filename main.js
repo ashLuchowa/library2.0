@@ -3,9 +3,9 @@ const mainContainer = document.querySelector('.main-container');
 let mainTable;
 
 //Library array + default books
-const defaultBook = new Book('The Hobbit', 'Tolkien', 201, 'Yes');
-const defaultBook2 = new Book('Warcraft', 'Blizzard Entertainment', 410, 'No');
-const defaultBook3 = new Book('Dragon Ball', 'Akira Toriyama', 190, 'Yes');
+const defaultBook = new Book('The Hobbit', 'Tolkien', 201, true);
+const defaultBook2 = new Book('Warcraft', 'Blizzard Entertainment', 410, false);
+const defaultBook3 = new Book('Dragon Ball', 'Akira Toriyama', 190, true);
 const myLibrary = [defaultBook, defaultBook2, defaultBook3];
 
 //Constructor
@@ -24,7 +24,7 @@ myLibrary.forEach((element) => {
 //Submit button Event Listener
 function submitForm(x) {
     x.preventDefault();
-    const addedBook = new Book(title.value, author.value, pages.value, read.checked);
+    let addedBook = new Book(title.value, author.value, pages.value, read.checked);
     myLibrary.push(addedBook);
     createNewBook(addedBook);
     resetForm();
@@ -51,8 +51,17 @@ function createNewBook(target) {
     createBookData('pages', target.pages);
     // createBookData('read', target.read);
 
-    //Toggle switch
+    //switch to read
+    toggleReadSwitch(target.read);
+
+    //Delete button
+    appendDelBtn();
+};
+
+//switch to read
+function toggleReadSwitch(y) {
     toggleDiv = document.createElement('div');
+    toggleDiv.classList.add('read');
     toggleContainer = document.createElement('label');
     toggleItem = document.createElement('input');
 
@@ -61,8 +70,9 @@ function createNewBook(target) {
     toggleDiv.appendChild(toggleContainer);
     toggleContainer.appendChild(toggleItem);
 
-    //Delete button
-    appendDelBtn();
+    if(y === true) {
+        toggleItem.checked = true;
+    }
 };
 
 //Delete Btn
