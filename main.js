@@ -5,7 +5,7 @@ let mainTable;
 //Library array + default books
 const defaultBook = new Book('The Hobbit', 'Tolkien', 201, 'Yes');
 const defaultBook2 = new Book('Warcraft', 'Blizzard Entertainment', 410, 'No');
-const defaultBook3 = new Book('Nunuko', 'Akimoto', 190, 'Yes');
+const defaultBook3 = new Book('Dragon Ball', 'Akira Toriyama', 190, 'Yes');
 const myLibrary = [defaultBook, defaultBook2, defaultBook3];
 
 //Constructor
@@ -49,7 +49,17 @@ function createNewBook(target) {
     createBookData('title', target.title);
     createBookData('author', target.author);
     createBookData('pages', target.pages);
-    createBookData('read', target.read);
+    // createBookData('read', target.read);
+
+    //Toggle switch
+    toggleDiv = document.createElement('div');
+    toggleContainer = document.createElement('label');
+    toggleItem = document.createElement('input');
+
+    toggleItem.type = 'checkbox';
+    mainTable.appendChild(toggleDiv);
+    toggleDiv.appendChild(toggleContainer);
+    toggleContainer.appendChild(toggleItem);
 
     //Delete button
     appendDelBtn();
