@@ -2,19 +2,21 @@
 const mainContainer = document.querySelector('.main-container');
 let mainTable;
 
+// Book class
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title
+        this.author = author,
+        this.pages = pages,
+        this.read = read;
+    }
+}
+
 //Library array + default books
 const defaultBook = new Book('The Hobbit', 'Tolkien', 201, true);
 const defaultBook2 = new Book('Warcraft', 'Blizzard Entertainment', 410, false);
 const defaultBook3 = new Book('Dragon Ball', 'Akira Toriyama', 190, true);
 const myLibrary = [defaultBook, defaultBook2, defaultBook3];
-
-//Constructor
-function Book(title, author, pages, read) {
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.read = read;
-};
 
 //Loop myLibrary Array
 myLibrary.forEach((element) => {
