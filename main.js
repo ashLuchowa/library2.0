@@ -1,6 +1,3 @@
-//Global Variables
-const mainContainer = document.querySelector('.main-container');
-let mainTable;
 
 // Book class
 class Book {
@@ -10,16 +7,17 @@ class Book {
         this.pages = pages,
         this.read = read;
     }
+
+    static defaultBook = new Book('The Hobbit', 'Tolkien', 201, true);
+    static defaultBook2 = new Book('Warcraft', 'Blizzard Entertainment', 410, false);
+    static defaultBook3 = new Book('Dragon Ball', 'Akira Toriyama', 190, true);
+
+    static myLibrary = [Book.defaultBook, Book.defaultBook2, Book.defaultBook3];
 }
 
-//Library array + default books
-const defaultBook = new Book('The Hobbit', 'Tolkien', 201, true);
-const defaultBook2 = new Book('Warcraft', 'Blizzard Entertainment', 410, false);
-const defaultBook3 = new Book('Dragon Ball', 'Akira Toriyama', 190, true);
-const myLibrary = [defaultBook, defaultBook2, defaultBook3];
 
 //Loop myLibrary Array
-myLibrary.forEach((element) => {
+Book.myLibrary.forEach((element) => {
     createNewBook(element);
 });
 
@@ -27,7 +25,7 @@ myLibrary.forEach((element) => {
 function submitForm(x) {
     x.preventDefault();
     let addedBook = new Book(title.value, author.value, pages.value, read.checked);
-    myLibrary.push(addedBook);
+    Book.myLibrary.push(addedBook);
     createNewBook(addedBook);
     resetForm();
     hideForm();
@@ -36,6 +34,8 @@ function submitForm(x) {
 
 //Create a new book
 function createNewBook(target) {
+    const mainContainer = document.querySelector('.main-container');
+
     mainTable = document.createElement('div');
     mainTable.classList.add('main-table');
     mainContainer.appendChild(mainTable);
@@ -57,7 +57,7 @@ function createNewBook(target) {
     toggleReadSwitch(target.read);
 
     //Delete button
-    appendDelBtn();
+    appendDelBtn(mainContainer);
 };
 
 //switch to read
@@ -84,7 +84,7 @@ function toggleReadSwitch(y) {
 };
 
 //Delete Btn
-function appendDelBtn() {
+function appendDelBtn(mainContainer) {
     //create the btn
     const delBtn = document.createElement('span');
     delBtn.classList.add('delete-btn-style');
@@ -97,14 +97,14 @@ function appendDelBtn() {
             mainContainer.removeChild(result);
 
             //Remove deleted object in myLibrary
-            const result2 = myLibrary.findIndex(findBook);
+            const result2 = Book.myLibrary.findIndex(findBook);
 
             function findBook(value) {
                 return value.title === targetTitle.textContent;
             }
 
             if (result2 !== -1) {
-                myLibrary.splice(result2, 1);
+                Book.myLibrary.splice(result2, 1);
             }
         }
     });
