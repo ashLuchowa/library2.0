@@ -20,7 +20,6 @@ Book.myLibrary.forEach((element) => {
     createNewBook(element);
 });
 
-
 //Create a new book
 function createNewBook(target) {
     const mainContainer = document.querySelector('.main-container');
