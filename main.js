@@ -15,22 +15,11 @@ class Book {
     static myLibrary = [Book.defaultBook, Book.defaultBook2, Book.defaultBook3];
 }
 
-
 //Loop myLibrary Array
 Book.myLibrary.forEach((element) => {
     createNewBook(element);
 });
 
-//Submit button Event Listener
-function submitForm(x) {
-    x.preventDefault();
-    let addedBook = new Book(title.value, author.value, pages.value, read.checked);
-    Book.myLibrary.push(addedBook);
-    createNewBook(addedBook);
-    resetForm();
-    hideForm();
-    blurBackground();
-};
 
 //Create a new book
 function createNewBook(target) {
@@ -104,8 +93,17 @@ function appendDelBtn(mainContainer) {
     });
 };
 
+//Submit button Event Listener
 const form = document.getElementById('main-form');
-form.addEventListener('submit', submitForm);
+form.addEventListener('submit', (x) => {
+    x.preventDefault();
+    let addedBook = new Book(title.value, author.value, pages.value, read.checked);
+    Book.myLibrary.push(addedBook);
+    createNewBook(addedBook);
+    resetForm();
+    hideForm();
+    blurBackground();
+});
 
 //Display Form
 const formBtn = document.querySelector('.form-btn');
