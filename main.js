@@ -1,5 +1,5 @@
 
-// Book class
+// A library array, default books and book properties
 class Book {
     constructor(title, author, pages, read) {
         this.title = title
@@ -35,29 +35,23 @@ function submitForm(x) {
 //Create a new book
 function createNewBook(target) {
     const mainContainer = document.querySelector('.main-container');
-
     mainTable = document.createElement('div');
     mainTable.classList.add('main-table');
     mainContainer.appendChild(mainTable);
-    
-    //create book data
-    function createBookData(className, value) {
-        const item = document.createElement('div');
-        item.classList.add(className);
-        mainTable.appendChild(item);
-        item.textContent = value;
-    };
 
     createBookData('title', target.title);
     createBookData('author', target.author);
     createBookData('pages', target.pages);
-    // createBookData('read', target.read);
-
-    //switch to read
     toggleReadSwitch(target.read);
-
-    //Delete button
     appendDelBtn(mainContainer);
+};
+
+//create book data
+function createBookData(className, value) {
+    const item = document.createElement('div');
+    item.classList.add(className);
+    mainTable.appendChild(item);
+    item.textContent = value;
 };
 
 //switch to read
